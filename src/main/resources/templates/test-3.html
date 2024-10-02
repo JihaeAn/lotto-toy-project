@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 6/45 - 실수령액 계산기</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        :root {
+            --secondary-color: #3498db; /* 파란색 */
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .input-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .input-form button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-form button:hover {
+            background-color: #1976D2;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .tax-info {
+            margin-top: 20px;
+        }
+
+        .tax-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .tax-info ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .tax-info li {
+            margin-bottom: 10px;
+        }
+
+        .tax-info li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body>
+
+<header th:replace="~{/header.html}"></header>
+
+<div class="container">
+    <div class="card">
+        <h2>당첨금 실수령액 계산기</h2>
+        <form class="input-form" id="netWinningsCalculator">
+            <input type="number" id="totalPrize" placeholder="당첨금액 (원)" required>
+            <button type="submit">계산하기</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <div class="card">
+        <h2>당첨금 관련 세금 정보</h2>
+        <div class="tax-info">
+            <h3>기본 세금 정보</h3>
+            <ul>
+                <li>당첨금 3억원 이하: 세금 22% (기타소득세 20% + 주민세 2%)</li>
+                <li>당첨금 3억원 초과: 3억원 이하 금액 22% + 초과 금액 33% (기타소득세 30% + 주민세 3%)</li>
+            </ul>
+            <h3>세금 계산 방법</h3>
+            <ul>
+                <li>3억원 이하: 당첨금 x 0.78 = 실수령액</li>
+                <li>3억원 초과: (3억원 x 0.78) + ((당첨금 - 3억원) x 0.67) = 실수령액</li>
+            </ul>
+            <h3>주의사항</h3>
+            <ul>
+                <li>세금은 당첨금 수령 시 원천징수됩니다.</li>
+                <li>당첨금은 다음 해 5월에 종합소득세 신고 대상입니다.</li>
+                <li>다른 소득과 합산되어 세금이 부과될 수 있으니 주의하세요.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('netWinningsCalculator').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const totalPrize = parseFloat(document.getElementById('totalPrize').value);
+
+        if (isNaN(totalPrize) || totalPrize <= 0) {
+            document.getElementById('result').textContent = '올바른 당첨금액을 입력해주세요.';
+            return;
+        }
+
+        let netWinnings;
+        if (totalPrize <= 300000000) {
+            netWinnings = totalPrize * 0.78;
+        } else {
+            netWinnings = (300000000 * 0.78) + ((totalPrize - 300000000) * 0.67);
+        }
+
+        const formattedNetWinnings = new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(netWinnings);
+        document.getElementById('result').textContent = `세금 공제 후 실수령액: ${formattedNetWinnings}`;
+        //$("#result").text(`세금 공제 후 실수령액: ${formattedNetWinnings}`);
+    });
+</script>
+</body>
+</html>

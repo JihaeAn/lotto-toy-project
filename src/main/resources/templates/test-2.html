@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 6/45 - 역대 당첨번호</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        :root {
+            --secondary-color: #3498db; /* 파란색 */
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-form input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-form button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-form button:hover {
+            background-color: #1976D2;
+        }
+
+        .lottery-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .yellow { background-color: #FFC107; }
+        .blue { background-color: #2196F3; }
+        .red { background-color: #F44336; }
+        .gray { background-color: #9E9E9E; }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex-basis: calc(33% - 20px);
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .stat-item {
+                flex-basis: calc(50% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header th:replace="~{/header.html}"></header>
+
+<div class="container">
+    <div class="card">
+        <h2>역대 당첨번호 검색</h2>
+        <form class="search-form">
+            <input type="number" placeholder="회차 번호를 입력하세요" min="1">
+            <button type="submit">검색</button>
+        </form>
+        <div id="search-result">
+            <!-- 검색 결과가 여기에 표시됩니다 -->
+            <p>1058회 당첨번호 (2024.03.16 추첨)</p>
+            <div class="lottery-numbers">
+                <div class="number red">7</div>
+                <div class="number red">12</div>
+                <div class="number red">15</div>
+                <div class="number red">24</div>
+                <div class="number red">37</div>
+                <div class="number red">40</div>
+                <div class="number yellow">45</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>가장 많이 나온 번호 통계</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="number yellow">1</div>
+                <div class="stat-number">34</div>
+                <div class="stat-label">1순위</div>
+            </div>
+            <div class="stat-item">
+                <div class="number yellow">7</div>
+                <div class="stat-number">32</div>
+                <div class="stat-label">2순위</div>
+            </div>
+            <div class="stat-item">
+                <div class="number blue">12</div>
+                <div class="stat-number">31</div>
+                <div class="stat-label">3순위</div>
+            </div>
+            <div class="stat-item">
+                <div class="number blue">18</div>
+                <div class="stat-number">30</div>
+                <div class="stat-label">4순위</div>
+            </div>
+            <div class="stat-item">
+                <div class="number red">23</div>
+                <div class="stat-number">29</div>
+                <div class="stat-label">5순위</div>
+            </div>
+            <div class="stat-item">
+                <div class="number red">27</div>
+                <div class="stat-number">28</div>
+                <div class="stat-label">6순위</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 여기에 검색 기능을 구현할 수 있습니다.
+    document.querySelector('.search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // 검색 로직 구현
+    });
+</script>
+</body>
+</html>
