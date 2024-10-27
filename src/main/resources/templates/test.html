@@ -280,6 +280,26 @@
                 numbersContainer.appendChild(div);
             }, index * 300);
         });
+
+        // 서버로 번호 전송
+        sendNumbersToServer(sortedNumbers);
+    }
+
+    function sendNumbersToServer(numbers) {
+        fetch('/user-lotto/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ numbers: numbers })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
     function getColorClass(number) {

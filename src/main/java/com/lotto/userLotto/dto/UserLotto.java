@@ -21,7 +21,7 @@ public class UserLotto {
     private Integer lottoNum4;                              // 로또 번호 4
     private Integer lottoNum5;                              // 로또 번호 5
     private Integer lottoNum6;                              // 로또 번호 6
-    private Integer lottoLank;                              // 등수
+    private Integer lottoRank;                              // 등수
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date crtDt;                                     // 생성 일자
     private String crtIp;                                   // 생성 IP
