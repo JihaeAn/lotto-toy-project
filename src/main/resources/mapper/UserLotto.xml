@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotto.userLotto.repository.mapper.UserLottoMapper">
+
+    <insert id="saveLottoNumbers" parameterType="UserLotto">
+        insert into USER_LOTTO_RECORD (draw_num, user_seq, lotto_num1, lotto_num2, lotto_num3, lotto_num4
+                                      , lotto_num5, lotto_num6, lotto_rank, crt_dt, crt_ip)
+        values(#{drawNum},#{userSeq},#{lottoNum1},#{lottoNum2},#{lottoNum3},#{lottoNum4},#{lottoNum5},
+               #{lottoNum6},#{lottoRank},sysdate(),#{crtIp})
+    </insert>
+
+    <select id="selectDrawNum" resultType="DrawNum">
+        select * from DRAW_NUM
+    </select>
+
+</mapper>
