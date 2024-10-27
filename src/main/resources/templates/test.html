@@ -270,28 +270,33 @@
         }
 
         const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
+        const lottoNums = {}
 
         sortedNumbers.forEach((number, index) => {
             setTimeout(() => {
                 const div = document.createElement('div');
                 div.className = 'number';
                 div.textContent = number;
+                lottoNums[`lottoNum${index + 1}`] = number;
                 div.classList.add(getColorClass(number));
+
                 numbersContainer.appendChild(div);
             }, index * 300);
         });
 
+        console.log(lottoNums);
         // 서버로 번호 전송
-        sendNumbersToServer(sortedNumbers);
+        sendNumbersToServer(lottoNums);
     }
 
-    function sendNumbersToServer(numbers) {
+    function sendNumbersToServer(lottoNums) {
+        console.log("number : ", lottoNums);
         fetch('/user-lotto/save', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ numbers: numbers })
+            body: JSON.stringify({ numbers: lottoNums })
         })
             .then(response => response.json())
             .then(data => {

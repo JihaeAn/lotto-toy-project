@@ -1,8 +1,6 @@
 package com.lotto.userLotto.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -10,6 +8,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserLotto {
 
     private Integer recordSeq;                              // 사용자 로또 기록 SEQ
