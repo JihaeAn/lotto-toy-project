@@ -23,8 +23,13 @@ public class UserLottoController {
 
     private final UserLottoService userLottoService;
 
+    @ResponseBody
     @PostMapping("/save")
-    public void saveLottoNumbers(@RequestBody UserLotto userLotto) {
+    public String saveLottoNumbers(@RequestBody UserLotto userLotto) {
+
         log.info("numbers={}", userLotto);
+        userLottoService.saveLottoNumbers(userLotto);
+
+        return "성공";
     }
 }

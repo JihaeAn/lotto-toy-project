@@ -261,32 +261,49 @@
 
 <script>
     function generateNumbers() {
+        // id가 generated-numbers인 태그를 가지고 온다.
+        // 추후 부모 div가 될 거임
         const numbersContainer = document.getElementById('generated-numbers');
+        // 번호 재 생성 시 원래 값을 지워주기 위함
         numbersContainer.innerHTML = '';
 
+        // 번호 중복 안되도록 Set 사용하고 랜덤 숫자 넣어줌
         const numbers = new Set();
         while(numbers.size < 6) {
             numbers.add(Math.floor(Math.random() * 45) + 1);
         }
 
+        // 정렬
         const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
+        // 서버로 보낼 데이터(객체) 생성 (lottoNum1 이런식으로 key 값 보내주기 위해서 만듦. 여기서 키값은 서버에서 필드 값임)
         const lottoNums = {}
 
         sortedNumbers.forEach((number, index) => {
             setTimeout(() => {
+                // div 태그 생성
                 const div = document.createElement('div');
+                // div의 class 이름을 number로 설정
                 div.className = 'number';
+                // div의 text 값에 number 설정
                 div.textContent = number;
+                // 서버에 보낼 데이터 가공 ex) lottoNum1 : 12
                 lottoNums[`lottoNum${index + 1}`] = number;
+                // 숫자에 따른 색상 설정
                 div.classList.add(getColorClass(number));
 
+                // numbersContainer(generated-numbers가 id인 태그)라는 변수에 자식 태그 설정
                 numbersContainer.appendChild(div);
-            }, index * 300);
-        });
 
-        console.log(lottoNums);
-        // 서버로 번호 전송
-        sendNumbersToServer(lottoNums);
+                // 비동기 방식이기 때문에 sendNumbersToServer 메서드를 밖으로 뺴면
+                // 모든 숫자가 forEach 돌기 전에 sendNumbersToServer 실행이 되므로
+                // 현재 인덱스를 확인 후 마지막 순번일 때 sendNumbersToServer 메서드를 실행하게 함
+
+                // (인덱스가 마지막인 경우)마지막 숫자를 추가한 후 서버로 전송
+                if (index === sortedNumbers.length - 1) {
+                    sendNumbersToServer(lottoNums);
+                }
+            }, index * 200);
+        });
     }
 
     function sendNumbersToServer(lottoNums) {
@@ -296,15 +313,8 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ numbers: lottoNums })
+            body: JSON.stringify(lottoNums)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
     }
 
     function getColorClass(number) {

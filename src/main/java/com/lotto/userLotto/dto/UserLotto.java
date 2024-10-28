@@ -5,11 +5,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class UserLotto {
 
     private Integer recordSeq;                              // 사용자 로또 기록 SEQ
