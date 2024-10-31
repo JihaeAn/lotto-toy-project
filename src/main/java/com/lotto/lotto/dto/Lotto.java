@@ -1,5 +1,6 @@
 package com.lotto.lotto.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,7 @@ public class Lotto {
     private Integer bonusNum;                                   // 보너스 번호
     private Integer firstPrizeAmount;                           // 1등 상금액
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private Date crtDt;                                         // 생성일자
 
 

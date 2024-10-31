@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로또 6/45 - 행운의 번호 생성</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/header.css">
     <style>
@@ -68,6 +69,18 @@
             width: 50px;
             height: 50px;
             color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .number-operator {
+            width: 50px;
+            height: 50px;
+            color: black;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -180,17 +193,18 @@
 
         <div class="card">
             <h2><i class="fas fa-trophy"></i> 최근 당첨번호</h2>
-            <p><strong>1058회 당첨결과</strong> (2024.03.16 추첨)</p>
+            <p id="drawNum"><strong>${drawNum}회 당첨결과</strong> (2024.03.16 추첨)</p>
             <div class="numbers-container">
-                <div class="number red">7</div>
-                <div class="number red">12</div>
-                <div class="number red">15</div>
-                <div class="number red">24</div>
-                <div class="number red">37</div>
-                <div class="number red">40</div>
-                <div class="number yellow">45</div>
+                <div class="number red" id="winningNum1"></div>
+                <div class="number red" id="winningNum2"></div>
+                <div class="number red" id="winningNum3"></div>
+                <div class="number red" id="winningNum4"></div>
+                <div class="number red" id="winningNum5"></div>
+                <div class="number red" id="winningNum6"></div>
+                <div class="number-operator">+</div>
+                <div class="number yellow" id="bonusNum"></div>
             </div>
-            <p>1등 당첨금: 23억 5천만원</p>
+            <p id="firstPrizeAmount">1등 당첨금: ${firstPrizeAmount}</p>
         </div>
 
         <div class="card">
@@ -260,6 +274,12 @@
 </div>
 
 <script>
+
+    $(function (){
+        getLatestLottery();
+    })
+
+    // 번호 생성 메서드
     function generateNumbers() {
         // id가 generated-numbers인 태그를 가지고 온다.
         // 추후 부모 div가 될 거임
@@ -306,6 +326,7 @@
         });
     }
 
+    // 생성된 번호 DB 저장 메서드
     function sendNumbersToServer(lottoNums) {
         console.log("number : ", lottoNums);
         fetch('/user-lotto/save', {
@@ -317,11 +338,37 @@
         })
     }
 
+    // 번호 색상 입히는 메서드
     function getColorClass(number) {
         if (number <= 10) return 'yellow';
         if (number <= 20) return 'blue';
         if (number <= 30) return 'red';
         return 'gray';
+    }
+
+    // 최근 당첨 번호 가져오는 메서드
+    function getLatestLottery() {
+
+        $.ajax({
+            url: '/lotto/get/latest-lottery',
+            method: 'GET',
+            contentType: 'application/json',
+            success: function(data) {
+                // 받아온 데이터로 HTML 요소 업데이트
+                $("#drawNum").html(`<strong>${data.drawNum}회 당첨결과</strong> (${data.crtDt} 추첨)`);
+                $("#winningNum1").text(data.winningNum1);
+                $("#winningNum2").text(data.winningNum2);
+                $("#winningNum3").text(data.winningNum3);
+                $("#winningNum4").text(data.winningNum4);
+                $("#winningNum5").text(data.winningNum5);
+                $("#winningNum6").text(data.winningNum6);
+                $("#bonusNum").text(data.bonusNum);
+                $("#firstPrizeAmount").text(`1등 당첨금: ${data.firstPrizeAmount}`);
+            },
+            error: function(error) {
+                console.error("오류 발생:", error);
+            }
+        });
     }
 </script>
 </body>

@@ -15,8 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Slf4j
+
 @Controller
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/user-lotto")
 public class UserLottoController {
