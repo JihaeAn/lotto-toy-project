@@ -10,8 +10,55 @@
                #{lottoNum6},#{lottoRank},#{crtDt},#{crtIp})
     </insert>
 
-    <select id="selectDrawNum" resultType="Integer">
-        SELECT MAX(draw_num) FROM DRAW_NUM
+    <select id="getUserWinningRecord" resultType="UserLotto" parameterType="java.util.List">
+        SELECT
+            match_counts.DRAW_NUM,
+            match_counts.RECORD_SEQ,
+            match_counts.USER_SEQ,
+            match_counts.LOTTO_NUM1, match_counts.LOTTO_NUM2, match_counts.LOTTO_NUM3,
+            match_counts.LOTTO_NUM4, match_counts.LOTTO_NUM5, match_counts.LOTTO_NUM6,
+            match_counts.CRT_DT,
+            match_counts.match_count,
+            CASE
+                WHEN match_counts.match_count = 6 THEN '1등'
+                WHEN match_counts.match_count = 5 AND match_counts.BONUS_MATCH = 1 THEN '2등'
+                WHEN match_counts.match_count = 5 THEN '3등'
+                WHEN match_counts.match_count = 4 THEN '4등'
+                WHEN match_counts.match_count = 3 THEN '5등'
+                ELSE '낙첨'
+                END AS prize
+        FROM
+            (SELECT
+                 ULR.RECORD_SEQ,
+                 ULR.DRAW_NUM,
+                 ULR.USER_SEQ,
+                 ULR.LOTTO_NUM1, ULR.LOTTO_NUM2, ULR.LOTTO_NUM3,
+                 ULR.LOTTO_NUM4, ULR.LOTTO_NUM5, ULR.LOTTO_NUM6,
+                 ULR.CRT_DT,
+                 -- 당첨 번호와 매칭된 개수를 계산
+                 (
+                     (CASE WHEN ULR.LOTTO_NUM1 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END) +
+                     (CASE WHEN ULR.LOTTO_NUM2 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END) +
+                     (CASE WHEN ULR.LOTTO_NUM3 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END) +
+                     (CASE WHEN ULR.LOTTO_NUM4 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END) +
+                     (CASE WHEN ULR.LOTTO_NUM5 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END) +
+                     (CASE WHEN ULR.LOTTO_NUM6 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END)
+                     ) AS match_count,
+                 -- 보너스 번호와 매칭되는지 여부 확인
+                 (CASE WHEN WN.BONUS_NUM IN (ULR.LOTTO_NUM1, ULR.LOTTO_NUM2, ULR.LOTTO_NUM3, ULR.LOTTO_NUM4, ULR.LOTTO_NUM5, ULR.LOTTO_NUM6) THEN 1 ELSE 0 END)
+                       AS BONUS_MATCH
+             FROM
+                 USER_LOTTO_RECORD ULR
+                     JOIN
+                 WINNING_NUM WN ON ULR.DRAW_NUM = WN.DRAW_NUM
+             WHERE ULR.DRAW_NUM = #{drawNum}
+            ) AS match_counts
+        ORDER BY
+            match_counts.DRAW_NUM DESC,
+            match_counts.match_count DESC,
+            match_counts.CRT_DT;
     </select>
+
+
 
 </mapper>

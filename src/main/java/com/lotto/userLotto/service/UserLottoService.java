@@ -6,7 +6,7 @@ import com.lotto.userLotto.repository.mapper.UserLottoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.util.*;
 
 
 @Service
@@ -32,5 +32,15 @@ public class UserLottoService {
                 .build();
 
         int result = userLottoMapper.saveLottoNumbers(userLotto);
+    }
+
+    public List<UserLotto> getUserWinningRecord(Integer drawNum) {
+
+        if (drawNum == null) {
+            drawNum = drawNumService.selectDrawNum();
+            return userLottoMapper.getUserWinningRecord(drawNum);
+        } else {
+            return userLottoMapper.getUserWinningRecord(drawNum);
+        }
     }
 }

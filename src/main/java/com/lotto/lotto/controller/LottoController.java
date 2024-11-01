@@ -23,7 +23,7 @@ public class LottoController {
     @ResponseBody
     @GetMapping("/get/latest-lottery")
     public Lotto getLatestLottery() {
-
+        // 토요일에 로또가 추첨되면 drawNum도 + 1 해줄 거기 때문에 최근 당첨번호를 보려면 - 1을 해주어야 한다.
         Integer drawNum = drawNumService.selectDrawNum() - 1;
         return lottoService.getLatestLottery(drawNum);
     }
