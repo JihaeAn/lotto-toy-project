@@ -10,7 +10,7 @@
                #{lottoNum6},#{lottoRank},#{crtDt},#{crtIp})
     </insert>
 
-    <select id="getUserWinningRecord" resultType="UserLotto" parameterType="java.util.List">
+    <select id="getUserWinningRecord" resultType="UserLotto" parameterType="java.lang.Integer">
         SELECT
             match_counts.DRAW_NUM,
             match_counts.RECORD_SEQ,
@@ -20,13 +20,13 @@
             match_counts.CRT_DT,
             match_counts.match_count,
             CASE
-                WHEN match_counts.match_count = 6 THEN '1등'
-                WHEN match_counts.match_count = 5 AND match_counts.BONUS_MATCH = 1 THEN '2등'
-                WHEN match_counts.match_count = 5 THEN '3등'
-                WHEN match_counts.match_count = 4 THEN '4등'
-                WHEN match_counts.match_count = 3 THEN '5등'
-                ELSE '낙첨'
-                END AS prize
+                WHEN match_counts.match_count = 6 THEN 1
+                WHEN match_counts.match_count = 5 AND match_counts.BONUS_MATCH = 1 THEN 2
+                WHEN match_counts.match_count = 5 THEN 3
+                WHEN match_counts.match_count = 4 THEN 4
+                WHEN match_counts.match_count = 3 THEN 5
+                ELSE 10
+                END AS LOTTO_RANK
         FROM
             (SELECT
                  ULR.RECORD_SEQ,
