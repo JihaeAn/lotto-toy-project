@@ -28,7 +28,7 @@ public class UserLottoService {
                 .lottoNum6(userLotto.getLottoNum6())
                 .crtDt(new Date())
                 .lottoRank(0) // test
-                .crtIp("127.0.0.1")
+                .crtIp(userLotto.getCrtIp())
                 .build();
 
         int result = userLottoMapper.saveLottoNumbers(userLotto);
