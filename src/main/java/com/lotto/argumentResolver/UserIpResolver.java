@@ -26,7 +26,6 @@ public class UserIpResolver extends RequestBodyAdviceAdapter {
         return UserLotto.class.isAssignableFrom(methodParameter.getParameterType());
     }
 
-
     // @RequestBody로 바인딩 된 후 타는 메서드
     @Override
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {

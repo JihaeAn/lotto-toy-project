@@ -111,6 +111,7 @@ function getUserWinningRecord(drawNum) {
         contentType: 'application/json',
         success: function (data) {
             data.forEach(function (list) {
+                $(".user-record")
             console.log(data);
             });
         },
