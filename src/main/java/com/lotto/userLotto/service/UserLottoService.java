@@ -1,6 +1,6 @@
 package com.lotto.userLotto.service;
 
-import com.lotto.drawNum.DrawNumService;
+import com.lotto.drawNum.service.DrawNumService;
 import com.lotto.userLotto.dto.UserLotto;
 import com.lotto.userLotto.repository.mapper.UserLottoMapper;
 import lombok.RequiredArgsConstructor;

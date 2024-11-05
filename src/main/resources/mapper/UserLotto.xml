@@ -18,6 +18,7 @@
             match_counts.LOTTO_NUM1, match_counts.LOTTO_NUM2, match_counts.LOTTO_NUM3,
             match_counts.LOTTO_NUM4, match_counts.LOTTO_NUM5, match_counts.LOTTO_NUM6,
             match_counts.CRT_DT,
+            match_counts.CRT_IP,
             match_counts.match_count,
             CASE
                 WHEN match_counts.match_count = 6 THEN 1
@@ -35,6 +36,7 @@
                  ULR.LOTTO_NUM1, ULR.LOTTO_NUM2, ULR.LOTTO_NUM3,
                  ULR.LOTTO_NUM4, ULR.LOTTO_NUM5, ULR.LOTTO_NUM6,
                  ULR.CRT_DT,
+                 ULR.CRT_IP,
                  -- 당첨 번호와 매칭된 개수를 계산
                  (
                      (CASE WHEN ULR.LOTTO_NUM1 IN (WN.WINNING_NUM1, WN.WINNING_NUM2, WN.WINNING_NUM3, WN.WINNING_NUM4, WN.WINNING_NUM5, WN.WINNING_NUM6) THEN 1 ELSE 0 END) +

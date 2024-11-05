@@ -1,6 +1,5 @@
 package com.lotto.userLotto.controller;
 
-import com.lotto.drawNum.DrawNumService;
 import com.lotto.userLotto.dto.UserLotto;
 import com.lotto.userLotto.service.UserLottoService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +17,6 @@ import java.util.List;
 public class UserLottoController {
 
     private final UserLottoService userLottoService;
-    private final DrawNumService drawNumService;
 
     @ResponseBody
     @PostMapping("/save")

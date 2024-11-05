@@ -1,9 +1,10 @@
+// 사용자 당첨 내역을 확인하기 위한 회차 (최초 변수 선언)
 let drawNum;
 
 $(function (){
     // 이 메서드 안에서 getUserWinningRecord()도 돎
     getLatestLottery();
-    // getUserWinningRecord(drawNum);
+    getDrawNumList();
 })
 
 // 번호 생성 메서드
@@ -81,6 +82,9 @@ function getLatestLottery() {
         method: 'GET',
         contentType: 'application/json',
         success: function(data) {
+            const prize = new Intl.NumberFormat().format(data.firstPrizeAmount);
+            console.log(prize);
+
             // 받아온 데이터로 HTML 요소 업데이트
             $("#drawNum").html(`<strong>${data.drawNum}회 당첨결과</strong> (${data.crtDt} 추첨)`);
             $("#winningNum1").text(data.winningNum1);
@@ -90,7 +94,7 @@ function getLatestLottery() {
             $("#winningNum5").text(data.winningNum5);
             $("#winningNum6").text(data.winningNum6);
             $("#bonusNum").text(data.bonusNum);
-            $("#firstPrizeAmount").text(`1등 당첨금: ${data.firstPrizeAmount}`);
+            $("#firstPrizeAmount").text(`1등 당첨금: ${prize}원`);
 
             drawNum = data.drawNum;
 
@@ -104,19 +108,74 @@ function getLatestLottery() {
 }
 
 // 사용자 당첨 내역 가져오는 메서드
-function getUserWinningRecord(drawNum) {
-    $.ajax({
+async function getUserWinningRecord(drawNum) {
+
+    const list = await $.ajax({
         url: `/user-lotto/get?drawNum=${drawNum}`,
         method: 'GET',
         contentType: 'application/json',
         success: function (data) {
-            data.forEach(function (list) {
-                $(".user-record")
             console.log(data);
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", error);
+    }
+    });
+
+    // 각 user-record를 추가할 부모 user-record-info 가져오기
+    const container = $(".user-record-info");
+    // const container = document.querySelector(".user-record-info");
+
+    for (let data of list) {
+
+        // 감싸는 div 생성
+        const userRecordDiv = document.createElement('div');
+        userRecordDiv.className = 'user-record';
+
+        userRecordDiv.innerHTML = `
+        <p><strong>${data.drawNum}회 ${data.lottoRank}등</strong> by ${data.userSeq} (${data.crtDt})</p>
+        <div class="user-numbers">
+            <div class="number user-number yellow">${data.lottoNum1}</div>
+            <div class="number user-number yellow">${data.lottoNum2}</div>
+            <div class="number user-number yellow">${data.lottoNum3}</div>
+            <div class="number user-number blue">${data.lottoNum4}</div>
+            <div class="number user-number red">${data.lottoNum5}</div>
+            <div class="number user-number gray">${data.lottoNum6}</div>
+        </div>
+    `;
+        container.append(userRecordDiv);
+    }
+}
+
+async function getDrawNumList() {
+
+    // selectBox에 쓸 회차 목록 가져오기
+    await $.ajax({
+        url: `/drawNum/get/list`,
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            const selectBox = $("#draw-selection");
+            selectBox.empty();
+
+            data.forEach(function (drawNum) {
+                const option = $('<option></option>').val(drawNum).text(drawNum);
+                selectBox.append(option);
             });
         },
         error: function (xhr, status, error) {
-        console.error("Error:", error);
-    }
+            console.error("Error:", error);
+        }
+    })
+
+    // 사용자가 selectBox를 통해 drawNum 값을 변경했을 때
+    $("#draw-selection").change(async function() {
+
+        // 원래 있던 데이터는 지워야 함
+        const container = $(".user-record-info");
+        await container.empty();
+
+        drawNum = $(this).val(); // 선택된 값으로 drawNum 업데이트
+        await getUserWinningRecord(drawNum); // 변경된 drawNum으로 다시 호출
     });
 }

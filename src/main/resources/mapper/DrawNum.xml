@@ -7,4 +7,7 @@
         SELECT MAX(draw_num) FROM DRAW_NUM
     </select>
 
+    <select id="getDrawNumList" resultType="java.lang.Integer">
+        SELECT DRAW_NUM FROM DRAW_NUM ORDER BY DRAW_NUM DESC
+    </select>
 </mapper>
