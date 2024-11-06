@@ -1,4 +1,4 @@
-package com.lotto.argumentResolver;
+package com.lotto.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

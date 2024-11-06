@@ -4,12 +4,14 @@ import com.lotto.drawNum.service.DrawNumService;
 import com.lotto.userLotto.dto.UserLotto;
 import com.lotto.userLotto.repository.mapper.UserLottoMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
 
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class UserLottoService {
 
@@ -17,6 +19,7 @@ public class UserLottoService {
     private final DrawNumService drawNumService;
 
     public void saveLottoNumbers(UserLotto userLotto) {
+
         userLotto = UserLotto.builder()
                 .drawNum(drawNumService.selectDrawNum()) // 제일 최신 회차 가져오기
                 .userSeq(1) // test
@@ -26,7 +29,7 @@ public class UserLottoService {
                 .lottoNum4(userLotto.getLottoNum4())
                 .lottoNum5(userLotto.getLottoNum5())
                 .lottoNum6(userLotto.getLottoNum6())
-                .crtDt(new Date())
+                .crtDt(userLotto.getCrtDt())
                 .lottoRank(0) // test
                 .crtIp(userLotto.getCrtIp())
                 .build();

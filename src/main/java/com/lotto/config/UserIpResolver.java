@@ -1,4 +1,4 @@
-package com.lotto.argumentResolver;
+package com.lotto.config;
 
 import com.lotto.userLotto.dto.UserLotto;
 import org.springframework.core.MethodParameter;

@@ -10,4 +10,6 @@ public interface DrawNumMapper {
     Integer selectDrawNum();
 
     List<Integer> getDrawNumList();
+
+    void updateDrawNum(String crtDt);
 }

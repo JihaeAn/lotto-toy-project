@@ -1,10 +1,7 @@
 package com.lotto.userLotto.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -22,9 +19,9 @@ public class UserLotto {
     private Integer lottoNum5;                              // 로또 번호 5
     private Integer lottoNum6;                              // 로또 번호 6
     private Integer lottoRank;                              // 등수
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
-    private Date crtDt;                                     // 생성 일자
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
+    private String crtDt;                                   // 생성 일자
     private String crtIp;                                   // 생성 IP
 
     // 별칭명으로 쓰는 컬럼들 추가

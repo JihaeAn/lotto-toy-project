@@ -1,16 +1,14 @@
 package com.lotto.lotto.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.*;
 
-import java.util.Date;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Lotto {
 
     private String drawNum;                                     // 회차
@@ -22,10 +20,5 @@ public class Lotto {
     private Integer winningNum6;                                // 당첨 번호 6
     private Integer bonusNum;                                   // 보너스 번호
     private Integer firstPrizeAmount;                           // 1등 상금액
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
-    private Date crtDt;                                         // 생성일자
-
-
-
+    private String crtDt;                                       // 생성일자
 }

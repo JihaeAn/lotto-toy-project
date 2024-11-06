@@ -10,4 +10,11 @@
     <select id="getDrawNumList" resultType="java.lang.Integer">
         SELECT DRAW_NUM FROM DRAW_NUM ORDER BY DRAW_NUM DESC
     </select>
+
+    <insert id="updateDrawNum" parameterType="java.lang.String">
+        INSERT INTO DRAW_NUM (DRAW_NUM, CRT_DT)
+        SELECT MAX(DRAW_NUM) + 1, #{crtDt}
+        FROM DRAW_NUM;
+    </insert>
+
 </mapper>

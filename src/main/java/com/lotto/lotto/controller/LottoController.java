@@ -27,4 +27,5 @@ public class LottoController {
         Integer drawNum = drawNumService.selectDrawNum() - 1;
         return lottoService.getLatestLottery(drawNum);
     }
+
 }
