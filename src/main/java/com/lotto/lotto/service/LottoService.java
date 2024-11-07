@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -41,7 +42,6 @@ public class LottoService {
         HttpEntity<?> httpEntity = new HttpEntity<>(httpHeaders);
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
-        log.info("Scheduled 활용 당첨 번호 가져오는 API={}", response.getBody());
 
         return response.getBody();
     }
@@ -61,6 +61,10 @@ public class LottoService {
     }
 
     public void saveLottoDrawResult(LottoDrawApiResult newLotto) {
-
+        try {
+            lottoMapper.saveLottoDrawResult(newLotto);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
     }
 }
