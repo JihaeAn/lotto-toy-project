@@ -55,6 +55,7 @@
                  WINNING_NUM WN ON ULR.DRAW_NUM = WN.DRAW_NUM
              WHERE ULR.DRAW_NUM = #{drawNum}
             ) AS match_counts
+        WHERE match_counts.match_count > 2
         ORDER BY
             match_counts.DRAW_NUM DESC,
             match_counts.match_count DESC,

@@ -7,4 +7,10 @@
     SELECT * FROM WINNING_NUM WHERE DRAW_NUM = #{drawNum}
 </select>
 
+<insert id="saveLottoDrawResult" parameterType="LottoDrawApiResult">
+    INSERT INTO WINNING_NUM (DRAW_NUM, WINNING_NUM1, WINNING_NUM2, WINNING_NUM3, WINNING_NUM4,
+                             WINNING_NUM5, WINNING_NUM6, BONUS_NUM, FIRST_PRIZE_AMOUNT, CRT_DT)
+    VALUES (#{drwNo}, #{drwtNo1}, #{drwtNo2}, #{drwtNo3}, #{drwtNo4}, #{drwtNo5}, #{drwtNo6},
+            #{bnusNo}, #{firstWinamnt}, #{drwNoDate})
+</insert>
 </mapper>

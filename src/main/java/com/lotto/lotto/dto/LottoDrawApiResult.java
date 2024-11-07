@@ -20,7 +20,7 @@ public class LottoDrawApiResult {
     private Integer drwtNo5;                                // 당첨 번호 5
     private Integer drwtNo6;                                // 당첨 번호 6
     private Integer bnusNo;                                 // 보너스 번호
-    private Integer firstWinamnt;                           // 1등 상금액
+    private long firstWinamnt;                              // 1등 상금액
     private String drwNoDate;                               // 로또 추첨 날짜
 
 }
