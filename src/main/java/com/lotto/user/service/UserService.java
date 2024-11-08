@@ -1,7 +1,7 @@
 package com.lotto.user.service;
 
 import com.lotto.user.dto.User;
-import com.lotto.user.repository.Mapper.UserMapper;
+import com.lotto.user.repository.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

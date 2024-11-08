@@ -84,7 +84,6 @@ function getLatestLottery() {
         success: function(data) {
             console.log(data); // 값 확인
             const prize = new Intl.NumberFormat().format(data.firstPrizeAmount);
-            console.log("잠시만요", prize);
 
             // 받아온 데이터로 HTML 요소 업데이트
             $("#drawNum").html(`<strong>${data.drawNum}회 당첨결과</strong> (${data.crtDt} 추첨)`);
