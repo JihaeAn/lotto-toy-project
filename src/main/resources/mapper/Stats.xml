@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotto.stats.repository.mapper.StatsMapper">
+
+    <insert id="saveStats" parameterType="Stats">
+        INSERT INTO WINNING_STATS_RECORD (DRAW_NUM, LOTTO_RANK, WINNER_COUNT, PRIZE_AMOUNT, CRT_DT)
+        VALUES (#{drawNum}, #{lottoRank}, #{winnerCount}, #{prizeAmount}, #{crtDt})
+    </insert>
+
+</mapper>
