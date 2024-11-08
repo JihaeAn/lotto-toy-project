@@ -46,6 +46,7 @@ public class LottoService {
         return response.getBody();
     }
 
+    // 받아온 로또 당첨 번호 역직렬화 JSON -> LottoDrawResult
     public LottoDrawApiResult lottoDrawResultToLotto(String lottoDrawResult) {
         ObjectMapper objectMapper = new ObjectMapper();
 

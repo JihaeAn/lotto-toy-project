@@ -35,7 +35,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'mysql:mysql-connector-java:8.0.32'
 //	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0' // Jackson 버전에 맞게 선택
-
+	implementation 'org.jsoup:jsoup:1.15.3'
 }
 
 tasks.named('test') {
