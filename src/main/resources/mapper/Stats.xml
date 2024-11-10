@@ -8,4 +8,8 @@
         VALUES (#{drawNum}, #{lottoRank}, #{winnerCount}, #{prizeAmount}, #{crtDt})
     </insert>
 
+    <select id="getStats" parameterType="Integer" resultType="Stats">
+        SELECT * FROM WINNING_STATS_RECORD WHERE DRAW_NUM = #{drawNum}
+    </select>
+
 </mapper>

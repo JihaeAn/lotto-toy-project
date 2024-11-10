@@ -24,23 +24,31 @@ public class Scheduler {
     @Scheduled(cron = "0 50 20 ? * 6")
     public void updateLottoResults() {
 
-        // 행운 복권 사이트에서 API로 당첨 번호 가져오기
-        String lottoDrawResult = lottoService.getLottoDrawResultApi();
+        try {
+            // 행운 복권 사이트에서 API로 당첨 번호 가져오기
+            String lottoDrawResult = lottoService.getLottoDrawResultApi();
 
-        // 받아온 데이터 역직렬화 JSON -> LottoDrawResult
-        LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
+            // 받아온 데이터 역직렬화 JSON -> LottoDrawResult
+            LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
 
-        // 로또 당첨 번호 DB에 저장하기
-        lottoService.saveLottoDrawResult(newLotto);
+            // 로또 당첨 번호 DB에 저장하기
+            lottoService.saveLottoDrawResult(newLotto);
 
-        // 기존 회차 데이터 + 1
-        drawNumService.updateDrawNum();
+            // 당첨 통계 크롤링해와서 DB에 저장
+            statsService.getStatsCrol();
+
+            // 기존 회차 데이터 + 1
+            drawNumService.updateDrawNum();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // 테스트 용
-    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
-    public void runAfterTenSecondsRepeatTenSeconds() {
-
+//    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
+//    public void runAfterTenSecondsRepeatTenSeconds() {
+//
 //        String lottoDrawResult = lottoService.getLottoDrawResultApi();
 //        log.info("lottoDrawResult = {}", lottoDrawResult);
 //        LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
@@ -48,10 +56,10 @@ public class Scheduler {
 //        lottoService.saveLottoDrawResult(newLotto);
 //        drawNumService.updateDrawNum();
 
-        try {
-            statsService.getStats();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//        try {
+//            statsService.getStatsCrol();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

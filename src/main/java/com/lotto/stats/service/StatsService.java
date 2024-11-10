@@ -26,7 +26,7 @@ public class StatsService {
 
     String url = "https://dhlottery.co.kr/gameResult.do?method=byWin";
 
-    public void getStats() throws IOException {
+    public void getStatsCrol() throws IOException {
 
         // HTML 문서 가져오기
         Document doc = Jsoup.connect(url).get();
@@ -91,11 +91,11 @@ public class StatsService {
     // DB에 저장하는 메서드
     public void saveStats(List<String> prizeAmount, List<String> winnerCount) {
 
-//        Integer drawNum = drawNumService.selectDrawNum();
+        Integer drawNum = drawNumService.selectDrawNum();
         for(int i = 0; i < 3; i++) {
 
             Stats firstStats = Stats.builder()
-                    .drawNum(1144)
+                    .drawNum(drawNum)
                     .lottoRank(i + 1)
                     .winnerCount(Integer.parseInt(winnerCount.get(i)))
                     .prizeAmount(Integer.parseInt(prizeAmount.get(i)))
@@ -104,6 +104,10 @@ public class StatsService {
 
             statsMapper.saveStats(firstStats);
         }
-        log.info("saveStats 메서드 종료");
+    }
+
+    public List<Stats> getStats() {
+        Integer drawNum = drawNumService.selectDrawNum() - 1;
+        return statsMapper.getStats(drawNum);
     }
 }

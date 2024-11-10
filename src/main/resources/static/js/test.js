@@ -5,6 +5,7 @@ $(function (){
     // 이 메서드 안에서 getUserWinningRecord()도 돎
     getLatestLottery();
     getDrawNumList();
+    getStats();
 })
 
 // 번호 생성 메서드
@@ -178,4 +179,32 @@ async function getDrawNumList() {
         drawNum = $(this).val(); // 선택된 값으로 drawNum 업데이트
         await getUserWinningRecord(drawNum); // 변경된 drawNum으로 다시 호출
     });
+}
+function getStats() {
+    $.ajax({
+        url: `/stats/get`,
+        method: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+            data.forEach(function (item) {
+                console.log(item)
+                const prize = new Intl.NumberFormat().format(item.prizeAmount);
+                const count = new Intl.NumberFormat().format(item.winnerCount);
+
+                const stats = `
+                    <tr>
+                    <td class="lotto-rank">${item.lottoRank}</td>
+                    <td class="winner-count">${count}명</td>
+                    <td class="prize-amount">${prize}원</td>
+                    </tr>
+                `;
+                $('.result-table').append(stats);
+
+                $(".draw-num").text(`${item.drawNum}회차 당첨 결과`);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", error);
+        }
+    })
 }
