@@ -10,6 +10,15 @@ $(function (){
 
 // 번호 생성 메서드
 function generateNumbers() {
+
+    // 버튼과 이미지 요소 가져오기
+    const button = $('#main-button');
+
+    // 기존 텍스트 저장 및 로딩 이미지 삽입
+    const originalText = button.html();
+    button.html('<img src="/image/web-5811_256.gif" style="height: 26px;">');
+    button.prop('disabled', true); // 버튼 비활성화
+
     // id가 generated-numbers인 태그를 가지고 온다.
     // 추후 부모 div가 될 거임
     const numbersContainer = document.getElementById('generated-numbers');
@@ -50,6 +59,10 @@ function generateNumbers() {
             // (인덱스가 마지막인 경우)마지막 숫자를 추가한 후 서버로 전송
             if (index === sortedNumbers.length - 1) {
                 sendNumbersToServer(lottoNums);
+
+                // 버튼 안의 이미지 제거하고 텍스트 복원
+                button.html(originalText);
+                button.prop('disabled', false); // 버튼 활성화
             }
         }, index * 200);
     });
@@ -187,7 +200,6 @@ function getStats() {
         contentType: 'application/json',
         success: function (data) {
             data.forEach(function (item) {
-                console.log(item)
                 const prize = new Intl.NumberFormat().format(item.prizeAmount);
                 const count = new Intl.NumberFormat().format(item.winnerCount);
 
