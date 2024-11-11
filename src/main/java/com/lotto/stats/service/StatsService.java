@@ -98,7 +98,7 @@ public class StatsService {
                     .drawNum(drawNum)
                     .lottoRank(i + 1)
                     .winnerCount(Integer.parseInt(winnerCount.get(i)))
-                    .prizeAmount(Integer.parseInt(prizeAmount.get(i)))
+                    .prizeAmount(Long.parseLong(prizeAmount.get(i)))
                     .crtDt(now().toString())
                     .build();
 
@@ -106,6 +106,7 @@ public class StatsService {
         }
     }
 
+    // DB에 저장된 통계 자료 가져오는 메서드
     public List<Stats> getStats() {
         Integer drawNum = drawNumService.selectDrawNum() - 1;
         return statsMapper.getStats(drawNum);

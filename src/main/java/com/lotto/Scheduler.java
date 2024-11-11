@@ -21,7 +21,7 @@ public class Scheduler {
     private final DrawNumService drawNumService;
     private final StatsService statsService;
 
-    @Scheduled(cron = "0 50 20 ? * 6")
+    @Scheduled(cron = "0 5 21 ? * 6")
     public void updateLottoResults() {
 
         try {

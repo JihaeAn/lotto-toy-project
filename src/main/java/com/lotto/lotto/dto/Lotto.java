@@ -19,6 +19,6 @@ public class Lotto {
     private Integer winningNum5;                                // 당첨 번호 5
     private Integer winningNum6;                                // 당첨 번호 6
     private Integer bonusNum;                                   // 보너스 번호
-    private Integer firstPrizeAmount;                           // 1등 상금액
+    private long firstPrizeAmount;                              // 1등 상금액
     private String crtDt;                                       // 생성일자
 }

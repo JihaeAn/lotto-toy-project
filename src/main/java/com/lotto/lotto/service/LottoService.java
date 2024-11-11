@@ -29,8 +29,8 @@ public class LottoService {
 
     // 로또 당첨 결과 가져오는 API 타는 메서드
     public String getLottoDrawResultApi() {
-//        String drawNum = drawNumService.selectDrawNum().toString();
-        String drawNum = "1144";
+        String drawNum = drawNumService.selectDrawNum().toString();
+//        String drawNum = "1144";
         log.info("drawNum={}", drawNum);
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + drawNum;
