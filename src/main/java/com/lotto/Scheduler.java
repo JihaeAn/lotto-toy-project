@@ -55,7 +55,7 @@ public class Scheduler {
 //        log.info("역직렬화 성공={}", newLotto);
 //        lottoService.saveLottoDrawResult(newLotto);
 //        drawNumService.updateDrawNum();
-
+//
 //        try {
 //            statsService.getStatsCrol();
 //        } catch (IOException e) {

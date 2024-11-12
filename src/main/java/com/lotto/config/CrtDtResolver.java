@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
 
 import java.lang.reflect.Type;
+import java.time.format.DateTimeFormatter;
 
 import static java.time.LocalDateTime.now;
 
@@ -34,24 +35,27 @@ public class CrtDtResolver extends RequestBodyAdviceAdapter {
     @Override
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
 
+        // LocalDateTime 포맷팅
+        String formattedDate = now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
         if (body instanceof UserLotto) {
             UserLotto userLotto = (UserLotto) body;
-            userLotto.setCrtDt(now().toString());
+            userLotto.setCrtDt(formattedDate);
         } else if (body instanceof User) {
             User user = (User) body;
-            user.setCrtDt(now().toString());
+            user.setCrtDt(formattedDate);
         } else if (body instanceof Lotto) {
             Lotto lotto = (Lotto) body;
-            lotto.setCrtDt(now().toString());
+            lotto.setCrtDt(formattedDate);
         } else if (body instanceof DrawNum) {
             DrawNum drawNum = (DrawNum) body;
-            drawNum.setCrtDt(now().toString());
+            drawNum.setCrtDt(formattedDate);
         } else if (body instanceof Stats) {
             Stats stats = (Stats) body;
-            stats.setCrtDt(now().toString());
+            stats.setCrtDt(formattedDate);
         } else if (body instanceof Store) {
             Store store = (Store) body;
-            store.setCrtDt(now().toString());
+            store.setCrtDt(formattedDate);
         }
         return body;
     }

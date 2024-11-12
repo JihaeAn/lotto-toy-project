@@ -4,6 +4,7 @@ import com.lotto.drawNum.repository.mapper.DrawNumMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static java.time.LocalDateTime.now;
@@ -24,7 +25,8 @@ public class DrawNumService {
 
     // 매주 토요일 9:00 마다 DrawNum 테이블 update
     public void updateDrawNum() {
-        String crtDt = now().toString();
+        // Resolver를 안 거치기에 LocalDateTime 포맷팅
+        String crtDt = now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         drawNumMapper.updateDrawNum(crtDt);
     }
 }

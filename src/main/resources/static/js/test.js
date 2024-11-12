@@ -16,7 +16,7 @@ function generateNumbers() {
 
     // 기존 텍스트 저장 및 로딩 이미지 삽입
     const originalText = button.html();
-    button.html('<img src="/image/web-5811_256.gif" style="height: 26px;">');
+    button.html('<img src="/image/loading-bar.gif" alt="번호 생성 중" style="height: 26px;">');
     button.prop('disabled', true); // 버튼 비활성화
 
     // id가 generated-numbers인 태그를 가지고 온다.

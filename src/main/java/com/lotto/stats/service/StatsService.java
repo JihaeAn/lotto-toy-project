@@ -11,6 +11,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +92,9 @@ public class StatsService {
     // DB에 저장하는 메서드
     public void saveStats(List<String> prizeAmount, List<String> winnerCount) {
 
+        // Resolver를 안 거치기에 LocalDateTime 포맷팅
+        String formattedDate = now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
         Integer drawNum = drawNumService.selectDrawNum();
         for(int i = 0; i < 3; i++) {
 
@@ -99,7 +103,7 @@ public class StatsService {
                     .lottoRank(i + 1)
                     .winnerCount(Integer.parseInt(winnerCount.get(i)))
                     .prizeAmount(Long.parseLong(prizeAmount.get(i)))
-                    .crtDt(now().toString())
+                    .crtDt(formattedDate)
                     .build();
 
             statsMapper.saveStats(firstStats);
