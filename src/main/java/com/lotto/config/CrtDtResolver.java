@@ -2,6 +2,7 @@ package com.lotto.config;
 
 import com.lotto.drawNum.dto.DrawNum;
 import com.lotto.lotto.dto.Lotto;
+import com.lotto.publicDo.dto.ParentsDto;
 import com.lotto.stats.dto.Stats;
 import com.lotto.store.dto.Store;
 import com.lotto.user.dto.User;
@@ -20,16 +21,11 @@ import static java.time.LocalDateTime.now;
 @ControllerAdvice
 public class CrtDtResolver extends RequestBodyAdviceAdapter {
 
-    // API 통신해서 받아온 LottoDrawApiResult DTO는 등록 안 해놨음
+    // API 통신해서 받아온 LottoDrawApiResult DTO는 제외
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return methodParameter.getParameterType().equals(UserLotto.class) ||
-                methodParameter.getParameterType().equals(User.class) ||
-                methodParameter.getParameterType().equals(Lotto.class) ||
-                methodParameter.getParameterType().equals(DrawNum.class) ||
-                methodParameter.getParameterType().equals(Stats.class) ||
-                methodParameter.getParameterType().equals(Store.class);
+        return ParentsDto.class.isAssignableFrom(methodParameter.getParameterType());
     }
 
     @Override
@@ -38,25 +34,29 @@ public class CrtDtResolver extends RequestBodyAdviceAdapter {
         // LocalDateTime 포맷팅
         String formattedDate = now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-        if (body instanceof UserLotto) {
-            UserLotto userLotto = (UserLotto) body;
-            userLotto.setCrtDt(formattedDate);
-        } else if (body instanceof User) {
-            User user = (User) body;
-            user.setCrtDt(formattedDate);
-        } else if (body instanceof Lotto) {
-            Lotto lotto = (Lotto) body;
-            lotto.setCrtDt(formattedDate);
-        } else if (body instanceof DrawNum) {
-            DrawNum drawNum = (DrawNum) body;
-            drawNum.setCrtDt(formattedDate);
-        } else if (body instanceof Stats) {
-            Stats stats = (Stats) body;
-            stats.setCrtDt(formattedDate);
-        } else if (body instanceof Store) {
-            Store store = (Store) body;
-            store.setCrtDt(formattedDate);
+        if (body instanceof ParentsDto) {
+            ParentsDto dto = (ParentsDto) body;
+            dto.setCrtDt(formattedDate);
         }
+//        if (body instanceof UserLotto) {
+//            UserLotto userLotto = (UserLotto) body;
+//            userLotto.setCrtDt(formattedDate);
+//        } else if (body instanceof User) {
+//            User user = (User) body;
+//            user.setCrtDt(formattedDate);
+//        } else if (body instanceof Lotto) {
+//            Lotto lotto = (Lotto) body;
+//            lotto.setCrtDt(formattedDate);
+//        } else if (body instanceof DrawNum) {
+//            DrawNum drawNum = (DrawNum) body;
+//            drawNum.setCrtDt(formattedDate);
+//        } else if (body instanceof Stats) {
+//            Stats stats = (Stats) body;
+//            stats.setCrtDt(formattedDate);
+//        } else if (body instanceof Store) {
+//            Store store = (Store) body;
+//            store.setCrtDt(formattedDate);
+//        }
         return body;
     }
 }

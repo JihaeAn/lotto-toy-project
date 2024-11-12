@@ -32,8 +32,7 @@ public class UserIpResolver extends RequestBodyAdviceAdapter {
 
         if (body instanceof UserLotto) {
             UserLotto userLotto = (UserLotto) body;
-            String ip = request.getRemoteAddr();
-            userLotto.setCrtIp(ip);  // IP 주소 설정
+            userLotto.setCrtIp(request.getRemoteAddr());
         }
         return body;
     }

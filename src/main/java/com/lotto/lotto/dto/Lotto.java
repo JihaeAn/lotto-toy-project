@@ -1,5 +1,6 @@
 package com.lotto.lotto.dto;
 
+import com.lotto.publicDo.dto.ParentsDto;
 import lombok.*;
 
 
@@ -9,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Lotto {
+public class Lotto implements ParentsDto {
 
     private String drawNum;                                     // 회차
     private Integer winningNum1;                                // 당첨 번호 1
@@ -21,4 +22,9 @@ public class Lotto {
     private Integer bonusNum;                                   // 보너스 번호
     private long firstPrizeAmount;                              // 1등 상금액
     private String crtDt;                                       // 생성일자
+
+    @Override
+    public void setCrtDt(String crtDt) {
+        this.crtDt = crtDt;
+    }
 }

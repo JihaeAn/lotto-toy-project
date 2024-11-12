@@ -142,6 +142,10 @@ async function getUserWinningRecord(drawNum) {
 
     for (let data of list) {
 
+        if (data.userSeq === 1) {
+            data.userSeq = "guest";
+        }
+
         // 감싸는 div 생성
         const userRecordDiv = document.createElement('div');
         userRecordDiv.className = 'user-record';
