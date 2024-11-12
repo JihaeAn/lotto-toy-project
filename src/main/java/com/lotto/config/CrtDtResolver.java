@@ -38,25 +38,7 @@ public class CrtDtResolver extends RequestBodyAdviceAdapter {
             ParentsDto dto = (ParentsDto) body;
             dto.setCrtDt(formattedDate);
         }
-//        if (body instanceof UserLotto) {
-//            UserLotto userLotto = (UserLotto) body;
-//            userLotto.setCrtDt(formattedDate);
-//        } else if (body instanceof User) {
-//            User user = (User) body;
-//            user.setCrtDt(formattedDate);
-//        } else if (body instanceof Lotto) {
-//            Lotto lotto = (Lotto) body;
-//            lotto.setCrtDt(formattedDate);
-//        } else if (body instanceof DrawNum) {
-//            DrawNum drawNum = (DrawNum) body;
-//            drawNum.setCrtDt(formattedDate);
-//        } else if (body instanceof Stats) {
-//            Stats stats = (Stats) body;
-//            stats.setCrtDt(formattedDate);
-//        } else if (body instanceof Store) {
-//            Store store = (Store) body;
-//            store.setCrtDt(formattedDate);
-//        }
+
         return body;
     }
 }
