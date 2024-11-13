@@ -20,18 +20,16 @@ import org.springframework.web.client.RestTemplate;
 public class LottoService {
 
     private final LottoMapper lottoMapper;
-    private final DrawNumService drawNumService;
 
-    // 최근 회차의 당첨 결과 가져오는 메서드
-    public Lotto getLatestLottery(Integer drawNum) {
-        return lottoMapper.getLatestLottery(drawNum);
+    // 특정 회차의 당첨 결과 가져오는 메서드
+    public Lotto getLottery(Integer drawNum) {
+        return lottoMapper.getLottery(drawNum);
     }
 
     // 로또 당첨 결과 가져오는 API 타는 메서드
-    public String getLottoDrawResultApi() {
-        String drawNum = drawNumService.selectDrawNum().toString();
-//        String drawNum = "1144";
-        log.info("drawNum={}", drawNum);
+    public String getLottoDrawResultApi(String drawNum) {
+        log.info("getLottoDrawResultApi drawNum={}", drawNum);
+
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + drawNum;
 

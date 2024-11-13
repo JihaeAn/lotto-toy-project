@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 
@@ -26,7 +27,8 @@ public class Scheduler {
 
         try {
             // 행운 복권 사이트에서 API로 당첨 번호 가져오기
-            String lottoDrawResult = lottoService.getLottoDrawResultApi();
+            String drawNum = drawNumService.selectDrawNum().toString();
+            String lottoDrawResult = lottoService.getLottoDrawResultApi(drawNum);
 
             // 받아온 데이터 역직렬화 JSON -> LottoDrawResult
             LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
@@ -47,19 +49,22 @@ public class Scheduler {
 
     // 테스트 용
 //    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
+//    @PostConstruct
 //    public void runAfterTenSecondsRepeatTenSeconds() {
 //
-//        String lottoDrawResult = lottoService.getLottoDrawResultApi();
-//        log.info("lottoDrawResult = {}", lottoDrawResult);
-//        LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
-//        log.info("역직렬화 성공={}", newLotto);
-//        lottoService.saveLottoDrawResult(newLotto);
-//        drawNumService.updateDrawNum();
+//        // API로 역대 회차 당첨 정보 받아오기
+//        for(int i = 100; i < 1144; i++) {
+//            String drawNum = String.valueOf(i);
+//            String lottoDrawResult = lottoService.getLottoDrawResultApi(drawNum);
 //
-//        try {
-//            statsService.getStatsCrol();
-//        } catch (IOException e) {
-//            e.printStackTrace();
+//            LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
+//            lottoService.saveLottoDrawResult(newLotto);
+//        }
+
+        // 회차부터 데이터 넣기
+//        for(int i = 100; i < 1144; i++) {
+//            System.out.println("TEST i = " + i);
+//            drawNumService.saveAllDrawNum(i);
 //        }
 //    }
 }

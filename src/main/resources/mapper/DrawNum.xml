@@ -17,4 +17,9 @@
         FROM DRAW_NUM;
     </insert>
 
+    <insert id="saveAllDrawNum" parameterType="DrawNum">
+        INSERT INTO DRAW_NUM (DRAW_NUM, CRT_DT)
+        VALUES (#{drawNum}, #{crtDt})
+    </insert>
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.lotto.drawNum.repository.mapper;
 
+import com.lotto.drawNum.dto.DrawNum;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface DrawNumMapper {
     List<Integer> getDrawNumList();
 
     void updateDrawNum(String crtDt);
+
+    void saveAllDrawNum(DrawNum drawNum);
 }

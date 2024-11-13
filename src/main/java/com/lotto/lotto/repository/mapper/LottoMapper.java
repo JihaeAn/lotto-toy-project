@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface LottoMapper {
 
-    Lotto getLatestLottery(Integer drawNum);
+    Lotto getLottery(Integer drawNum);
 
     void saveLottoDrawResult(LottoDrawApiResult newLotto);
 }

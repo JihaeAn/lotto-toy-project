@@ -135,11 +135,18 @@
 .result-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-.result-table th, .result-table td {
+.result-table th {
     padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 동적으로 추가된 데이터 스타일 */
+.result-table .dynamic-data td {
+    padding: 10px; /* 추가된 데이터에 대해 패딩 */
     text-align: center;
     border-bottom: 1px solid #ddd;
 }

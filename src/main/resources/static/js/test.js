@@ -197,18 +197,21 @@ async function getDrawNumList() {
         await getUserWinningRecord(drawNum); // 변경된 drawNum으로 다시 호출
     });
 }
+
+// 당첨 통계 가져오기
 function getStats() {
     $.ajax({
         url: `/stats/get`,
         method: 'GET',
         contentType: 'application/json',
         success: function (data) {
+            console.log("당첨 통계", data);
             data.forEach(function (item) {
                 const prize = new Intl.NumberFormat().format(item.prizeAmount);
                 const count = new Intl.NumberFormat().format(item.winnerCount);
 
                 const stats = `
-                    <tr>
+                    <tr class="dynamic-data">
                     <td class="lotto-rank">${item.lottoRank}</td>
                     <td class="winner-count">${count}명</td>
                     <td class="prize-amount">${prize}원</td>

@@ -1,14 +1,14 @@
 package com.lotto.drawNum.dto;
 
 import com.lotto.publicDo.dto.ParentsDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class DrawNum implements ParentsDto {
 
     private Integer drawNum;                                    // 회차번호

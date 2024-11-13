@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotto.lotto.repository.mapper.LottoMapper">
 
-<select id="getLatestLottery" parameterType="Integer" resultType="Lotto">
+<select id="getLottery" parameterType="Integer" resultType="Lotto">
     SELECT * FROM WINNING_NUM WHERE DRAW_NUM = #{drawNum}
 </select>
 
