@@ -14,21 +14,21 @@
 <div class="container">
     <div class="card">
         <h2>역대 당첨번호 검색</h2>
-        <form class="search-form">
-            <input type="number" placeholder="회차 번호를 입력하세요" min="1">
+        <form class="search-form" id="searchForm">
+            <input type="number" id="drawNum" placeholder="회차 번호를 입력하세요" min="1">
             <button type="submit">검색</button>
         </form>
         <div id="search-result">
-            <!-- 검색 결과가 여기에 표시됩니다 -->
-            <p>1058회 당첨번호 (2024.03.16 추첨)</p>
+            <p id="drawNumInfo"></p>
             <div class="lottery-numbers">
-                <div class="number red">7</div>
-                <div class="number red">12</div>
-                <div class="number red">15</div>
-                <div class="number red">24</div>
-                <div class="number red">37</div>
-                <div class="number red">40</div>
-                <div class="number yellow">45</div>
+                <div class="number red" id="winningNum1">회</div>
+                <div class="number red" id="winningNum2">차</div>
+                <div class="number red" id="winningNum3">를</div>
+                <div class="number red" id="winningNum4">입</div>
+                <div class="number red" id="winningNum5">력</div>
+                <div class="number red" id="winningNum6">해</div>
+                <div class="number-operator">+</div>
+                <div class="number yellow" id="bonusNum">!</div>
             </div>
         </div>
     </div>
