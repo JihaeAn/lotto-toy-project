@@ -25,12 +25,9 @@ public class StatsService {
     private final StatsMapper statsMapper;
     private final DrawNumService drawNumService;
 
-    String url = "https://dhlottery.co.kr/gameResult.do?method=byWin";
 
-    public void getStatsCrol() throws IOException {
-
-        // HTML 문서 가져오기
-        Document doc = Jsoup.connect(url).get();
+    // 최근 회차 당첨 결과 통계 (1등 몇 명이고 상금 얼만지)
+    public void getStatsCrol(Document doc) throws IOException {
 
         // 1등 상금액 받아오는 메서드
         List<String> prizeAmount = getWinAmoutList(doc);

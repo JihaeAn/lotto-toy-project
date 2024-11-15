@@ -3,7 +3,7 @@ package com.lotto.lotto.controller;
 import com.lotto.drawNum.service.DrawNumService;
 import com.lotto.lotto.dto.Lotto;
 import com.lotto.lotto.service.LottoService;
-import com.lotto.publicDo.PublicService;
+import com.lotto.publicDo.service.PublicService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

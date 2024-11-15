@@ -3,14 +3,17 @@ package com.lotto;
 import com.lotto.drawNum.service.DrawNumService;
 import com.lotto.lotto.dto.LottoDrawApiResult;
 import com.lotto.lotto.service.LottoService;
-import com.lotto.publicDo.PublicService;
+import com.lotto.publicDo.service.PublicService;
 import com.lotto.stats.service.StatsService;
+import com.lotto.store.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jsoup.nodes.Document;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Map;
 
 
 @Slf4j
@@ -22,6 +25,7 @@ public class Scheduler {
     private final DrawNumService drawNumService;
     private final StatsService statsService;
     private final PublicService publicService;
+    private final StoreService storeService;
 
     @Scheduled(cron = "0 5 21 ? * 6")
     public void updateLottoResults() {
@@ -38,7 +42,14 @@ public class Scheduler {
             lottoService.saveLottoDrawResult(newLotto);
 
             // 당첨 통계 크롤링해와서 DB에 저장
-            statsService.getStatsCrol();
+            String statsUrl = "https://dhlottery.co.kr/gameResult.do?method=byWin";
+            Document statsDoc = publicService.getDocumentToCrol(statsUrl);
+            statsService.getStatsCrol(statsDoc);
+
+            // 1등 판매점 크롤링해와서 DB에 저장
+            String storeUrl = "https://www.dhlottery.co.kr/store.do?method=topStore&pageGubun=L645";
+            Document doc = publicService.getDocumentToCrol(storeUrl);
+            storeService.getStoreInfo(doc);
 
             // 기존 회차 데이터 + 1
             drawNumService.updateDrawNum();
@@ -49,8 +60,8 @@ public class Scheduler {
     }
 
     // 테스트 용
-//    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
-//    public void runAfterTenSecondsRepeatTenSeconds() {
+    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
+    public void runAfterTenSecondsRepeatTenSeconds() {
 //
 //        String toDate = lottoService.getLatestLottery().getCrtDt();
 //        String fromDate = publicService.minusMonths(toDate, 6);
@@ -60,5 +71,18 @@ public class Scheduler {
 //
 //        List<Map<Integer, Integer>> result = lottoService.getMostNumStats(fromDate, toDate);
 //        log.info("제일 많이 나온 통계={}", result);
-//    }
+
+        try {
+            // 원하는 페이지의 url로 Document 받아오기
+            String url = "https://www.dhlottery.co.kr/store.do?method=topStore&pageGubun=L645";
+            Document doc = publicService.getDocumentToCrol(url);
+
+            Map<String, String> storeList = storeService.getStoreInfo(doc);
+
+            // 크롤링 해온 판매점 DB에 저장하기
+            storeService.saveStoreList(storeList);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
