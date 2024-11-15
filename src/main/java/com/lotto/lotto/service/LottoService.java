@@ -2,7 +2,6 @@ package com.lotto.lotto.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lotto.drawNum.service.DrawNumService;
 import com.lotto.lotto.dto.Lotto;
 import com.lotto.lotto.dto.LottoDrawApiResult;
 import com.lotto.lotto.repository.mapper.LottoMapper;
@@ -12,6 +11,9 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -24,6 +26,11 @@ public class LottoService {
     // 특정 회차의 당첨 결과 가져오는 메서드
     public Lotto getLottery(Integer drawNum) {
         return lottoMapper.getLottery(drawNum);
+    }
+
+    // 최신 회차 정보 객체로 가져오기
+    public Lotto getLatestLottery() {
+        return lottoMapper.getLatestLottery();
     }
 
     // 로또 당첨 결과 가져오는 API 타는 메서드
@@ -65,5 +72,13 @@ public class LottoService {
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
+    }
+
+    // 제일 많이 나온 숫자 통계 가져오기
+    public List<Map<String, Object>> getMostNumStats(String fromDate, String toDate) {
+        Map<String, String> date = new HashMap<>();
+        date.put("fromDate", fromDate);
+        date.put("toDate", toDate);
+        return lottoMapper.getMostNumStats(date);
     }
 }

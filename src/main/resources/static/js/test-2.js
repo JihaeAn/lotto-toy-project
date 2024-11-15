@@ -1,5 +1,6 @@
 $(function () {
     searchWinningNum();
+    getMostNumStats();
 })
 
 // 역대 당첨 번호 검색
@@ -45,3 +46,45 @@ function searchWinningNum(drawNum) {
         });
     });
 }
+
+// 제일 많이 나온 숫자 통계 가져오기
+function getMostNumStats() {
+    $.ajax({
+        url: '/lotto/get/Stats',
+        type: 'GET',
+        contentType: 'application/json',
+        success: function (data) {
+
+            data.forEach((list, index) => {
+                if (index === 0) {
+                    $("#number1").text(list.number);
+                    $("#count1").text(list.count + "회");
+                }
+                if (index === 1) {
+                    $("#number2").text(list.number);
+                    $("#count2").text(list.count + "회");
+                }
+                if (index === 2) {
+                    $("#number3").text(list.number);
+                    $("#count3").text(list.count + "회");
+                }
+                if (index === 3) {
+                    $("#number4").text(list.number);
+                    $("#count4").text(list.count + "회");
+                }
+                if (index === 4) {
+                    $("#number5").text(list.number);
+                    $("#count5").text(list.count + "회");
+                }
+                if (index === 5) {
+                    $("#number6").text(list.number);
+                    $("#count6").text(list.count + "회");
+                }
+            })
+        },
+        error: function (error) {
+            console.log("오류 발생 ", error);
+        }
+    });
+}
+

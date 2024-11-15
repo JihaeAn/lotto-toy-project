@@ -165,6 +165,7 @@ async function getUserWinningRecord(drawNum) {
     }
 }
 
+// 회차 리스트 가져오기
 async function getDrawNumList() {
 
     // selectBox에 쓸 회차 목록 가져오기

@@ -15,4 +15,6 @@ public interface DrawNumMapper {
     void updateDrawNum(String crtDt);
 
     void saveAllDrawNum(DrawNum drawNum);
+
+    DrawNum getDrawNumDto();
 }

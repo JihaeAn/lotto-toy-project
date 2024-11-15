@@ -3,6 +3,7 @@ package com.lotto;
 import com.lotto.drawNum.service.DrawNumService;
 import com.lotto.lotto.dto.LottoDrawApiResult;
 import com.lotto.lotto.service.LottoService;
+import com.lotto.publicDo.PublicService;
 import com.lotto.stats.service.StatsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ public class Scheduler {
     private final LottoService lottoService;
     private final DrawNumService drawNumService;
     private final StatsService statsService;
+    private final PublicService publicService;
 
     @Scheduled(cron = "0 5 21 ? * 6")
     public void updateLottoResults() {
@@ -48,22 +50,15 @@ public class Scheduler {
 
     // 테스트 용
 //    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
-//    @PostConstruct
 //    public void runAfterTenSecondsRepeatTenSeconds() {
 //
-//        // API로 역대 회차 당첨 정보 받아오기
-//        for(int i = 100; i < 1144; i++) {
-//            String drawNum = String.valueOf(i);
-//            String lottoDrawResult = lottoService.getLottoDrawResultApi(drawNum);
+//        String toDate = lottoService.getLatestLottery().getCrtDt();
+//        String fromDate = publicService.minusMonths(toDate, 6);
 //
-//            LottoDrawApiResult newLotto = lottoService.lottoDrawResultToLotto(lottoDrawResult);
-//            lottoService.saveLottoDrawResult(newLotto);
-//        }
-
-        // 회차부터 데이터 넣기
-//        for(int i = 100; i < 1144; i++) {
-//            System.out.println("TEST i = " + i);
-//            drawNumService.saveAllDrawNum(i);
-//        }
+//        System.out.println("fromDate = " + fromDate);
+//        System.out.println("toDate = " + toDate);
+//
+//        List<Map<Integer, Integer>> result = lottoService.getMostNumStats(fromDate, toDate);
+//        log.info("제일 많이 나온 통계={}", result);
 //    }
 }
