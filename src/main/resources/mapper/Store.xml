@@ -7,4 +7,7 @@
         VALUES (#{drawNum}, #{address}, #{storeName}, #{crtDt})
     </insert>
 
+    <select id="getStoreList" parameterType="java.lang.Integer" resultType="Store">
+        SELECT * FROM FIRST_PRIZE_STORE WHERE DRAW_NUM = #{drawNum}
+    </select>
 </mapper>

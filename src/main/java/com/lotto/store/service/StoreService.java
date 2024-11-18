@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
@@ -64,5 +65,10 @@ public class StoreService {
 
             storeMapper.saveStoreList(store);
         }
+    }
+
+    public List<Store> getStoreList() {
+        Integer drawNum = drawNumService.selectDrawNum() - 1;
+        return storeMapper.getStoreList(drawNum);
     }
 }

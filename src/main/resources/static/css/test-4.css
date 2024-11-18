@@ -1,0 +1,78 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+:root {
+    --secondary-color: #3498db; /* 파란색 */
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #006400;
+    margin-bottom: 5px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-form button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #1976D2;
+}
+
+.store-list {
+    list-style: none;
+}
+
+.store-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.store-item:last-child {
+    border-bottom: none;
+}
+
+.store-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.store-address {
+    font-size: 17px;
+    color: #666;
+}
+
+.store-date {
+    font-size: 0.8em;
+    color: #999;
+}

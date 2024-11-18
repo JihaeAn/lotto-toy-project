@@ -5,7 +5,6 @@ import com.lotto.stats.dto.Stats;
 import com.lotto.stats.repository.mapper.StatsMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
@@ -86,7 +85,7 @@ public class StatsService {
     }
 
 
-    // DB에 저장하는 메서드
+    // 최근 회차 당첨 결과 통계 DB에 저장하는 메서드
     public void saveStats(List<String> prizeAmount, List<String> winnerCount) {
 
         // Resolver를 안 거치기에 LocalDateTime 포맷팅

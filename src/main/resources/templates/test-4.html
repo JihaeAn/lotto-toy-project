@@ -4,87 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로또 6/45 - 1등 판매점 확인</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/header.css">
-    <style>
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        :root {
-            --secondary-color: #3498db; /* 파란색 */
-        }
-
-        .card {
-            background-color: var(--card-background);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .search-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .search-form input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .search-form button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .search-form button:hover {
-            background-color: #1976D2;
-        }
-
-        .store-list {
-            list-style: none;
-        }
-
-        .store-item {
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-        }
-
-        .store-item:last-child {
-            border-bottom: none;
-        }
-
-        .store-name {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .store-address {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .store-date {
-            font-size: 0.8em;
-            color: #999;
-        }
-    </style>
+    <script src="/js/test-4.js" defer></script>
+    <link rel="stylesheet" href="/css/test-4.css">
 </head>
 <body>
 
@@ -92,54 +13,14 @@
 
 <div class="container">
     <div class="card">
-        <h2>1등 판매점 검색</h2>
-        <form class="search-form">
-            <input type="text" placeholder="판매점 이름 또는 주소 검색">
-            <button type="submit">검색</button>
-        </form>
-        <div id="search-result">
-            <!-- 검색 결과가 여기에 표시됩니다 -->
+        <div style="display: flex; align-items: center;">
+            <img src="/image/store.png" alt="test" style="height: 26px; margin-right: 10px;">
+            <h2 id="store-info" style="margin: 0;">1등 배출 판매점</h2>
         </div>
-    </div>
-
-    <div class="card">
-        <h2>최근 1등 배출 판매점</h2>
         <ul class="store-list">
-            <li class="store-item">
-                <div class="store-name">행운복권</div>
-                <div class="store-address">서울특별시 강남구 테헤란로 123</div>
-                <div class="store-date">당첨일: 2024-03-23</div>
-            </li>
-            <li class="store-item">
-                <div class="store-name">황금로또</div>
-                <div class="store-address">부산광역시 해운대구 해운대해변로 87</div>
-                <div class="store-date">당첨일: 2024-03-16</div>
-            </li>
-            <li class="store-item">
-                <div class="store-name">드림로또</div>
-                <div class="store-address">대구광역시 중구 동성로 45</div>
-                <div class="store-date">당첨일: 2024-03-09</div>
-            </li>
-            <li class="store-item">
-                <div class="store-name">행복복권방</div>
-                <div class="store-address">인천광역시 남동구 인하로 235</div>
-                <div class="store-date">당첨일: 2024-03-02</div>
-            </li>
-            <li class="store-item">
-                <div class="store-name">로또명당</div>
-                <div class="store-address">광주광역시 서구 상무중앙로 76</div>
-                <div class="store-date">당첨일: 2024-02-24</div>
-            </li>
+<!--            js로 동적으로 추가됨-->
         </ul>
     </div>
 </div>
-
-<script>
-    // 여기에 검색 기능을 구현할 수 있습니다.
-    document.querySelector('.search-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // 검색 로직 구현
-    });
-</script>
 </body>
 </html>
