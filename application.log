@@ -1,0 +1,178 @@
+2024-11-18 15:12:23.181  INFO 4428 --- [restartedMain] com.lotto.LottoApplication               : Starting LottoApplication using Java 11.0.11 on anjihaeui-MacBookAir.local with PID 4428 (/Users/anjihae/Desktop/project/lotto/out/production/classes started by anjihae in /Users/anjihae/Desktop/project/lotto)
+2024-11-18 15:12:23.222  INFO 4428 --- [restartedMain] com.lotto.LottoApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-11-18 15:12:23.277  INFO 4428 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-18 15:12:23.280  INFO 4428 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-18 15:12:24.405  INFO 4428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-11-18 15:12:24.412  INFO 4428 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18 15:12:24.412  INFO 4428 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2024-11-18 15:12:24.451  INFO 4428 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-18 15:12:24.451  INFO 4428 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1171 ms
+2024-11-18 15:12:25.015 DEBUG 4428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 3 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-18 15:12:25.029  INFO 4428 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-18 15:12:25.055 DEBUG 4428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2024-11-18 15:12:25.065 DEBUG 4428 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /image/**] in 'resourceHandlerMapping'
+2024-11-18 15:12:25.074 DEBUG 4428 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-18 15:12:25.167  INFO 4428 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18 15:12:25.199  INFO 4428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-11-18 15:12:25.216  INFO 4428 --- [restartedMain] com.lotto.LottoApplication               : Started LottoApplication in 2.385 seconds (JVM running for 3.079)
+2024-11-18 15:12:38.260  INFO 4428 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18 15:12:38.262  INFO 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-18 15:12:38.262 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-11-18 15:12:38.263 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-11-18 15:12:38.263 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-11-18 15:12:38.267 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2fcc97e7
+2024-11-18 15:12:38.268 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@f84a241
+2024-11-18 15:12:38.268 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-11-18 15:12:38.268  INFO 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2024-11-18 15:12:38.276 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/test", parameters={}
+2024-11-18 15:12:38.280 DEBUG 4428 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.TestController#test()
+2024-11-18 15:12:38.295 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-18 15:12:38.445 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:38.475 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/test.js", parameters={}
+2024-11-18 15:12:38.475 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/test.css", parameters={}
+2024-11-18 15:12:38.475 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/header.css", parameters={}
+2024-11-18 15:12:38.481 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:12:38.481 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:12:38.481 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:12:38.493 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:38.493 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:38.493 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:38.535 DEBUG 4428 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/lotto/get/latest-lottery", parameters={}
+2024-11-18 15:12:38.535 DEBUG 4428 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/drawNum/get/list", parameters={}
+2024-11-18 15:12:38.535 DEBUG 4428 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/stats/get", parameters={}
+2024-11-18 15:12:38.537 DEBUG 4428 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.lotto.controller.LottoController#getLatestLottery()
+2024-11-18 15:12:38.537 DEBUG 4428 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.stats.controller.StatsController#getStats()
+2024-11-18 15:12:38.537 DEBUG 4428 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.drawNum.controller.DrawNumController#getDrawNumList()
+2024-11-18 15:12:38.554  INFO 4428 --- [http-nio-8081-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-18 15:12:39.029  INFO 4428 --- [http-nio-8081-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-18 15:12:39.122 DEBUG 4428 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:12:39.123 DEBUG 4428 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[1146, 1145, 1144, 1143, 1142, 1141, 1140, 1139, 1138, 1137, 1136, 1135, 1134, 1133, 1132, 1131, 113 (truncated)...]
+2024-11-18 15:12:39.134 DEBUG 4428 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:39.171 DEBUG 4428 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:12:39.171 DEBUG 4428 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.lotto.stats.dto.Stats@390b096f, com.lotto.stats.dto.Stats@67afd35e, com.lotto.stats.dto.Stats@1 (truncated)...]
+2024-11-18 15:12:39.183 DEBUG 4428 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:12:39.185 DEBUG 4428 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:39.222 DEBUG 4428 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [Lotto(drawNum=1146, winningNum1=6, winningNum2=11, winningNum3=17, winningNum4=19, winningNum5=40, w (truncated)...]
+2024-11-18 15:12:39.224 DEBUG 4428 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:39.229 DEBUG 4428 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/user-lotto/get?drawNum=1146", parameters={masked}
+2024-11-18 15:12:39.230 DEBUG 4428 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.userLotto.controller.UserLottoController#getUserWinningRecord(Integer)
+2024-11-18 15:12:39.267 DEBUG 4428 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:12:39.281 DEBUG 4428 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[UserLotto(recordSeq=129, drawNum=1146, userSeq=1, lottoNum1=1, lottoNum2=17, lottoNum3=20, lottoNum (truncated)...]
+2024-11-18 15:12:39.285 DEBUG 4428 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:42.666 DEBUG 4428 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/test-4", parameters={}
+2024-11-18 15:12:42.668 DEBUG 4428 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.TestController#test4()
+2024-11-18 15:12:42.677 DEBUG 4428 --- [http-nio-8081-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-18 15:12:42.693 DEBUG 4428 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:42.704 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/test-4.css", parameters={}
+2024-11-18 15:12:42.704 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/css/header.css", parameters={}
+2024-11-18 15:12:42.707 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/test-4.js", parameters={}
+2024-11-18 15:12:42.711 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:12:42.711 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:12:42.714 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:12:42.716 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/image/store.png", parameters={}
+2024-11-18 15:12:42.718 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:42.720 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:42.720 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:12:42.721 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/image/]]
+2024-11-18 15:12:42.729 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2024-11-18 15:12:42.729 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/store/get/storeList", parameters={}
+2024-11-18 15:12:42.729 DEBUG 4428 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.store.controller.StoreController#getStoreList()
+2024-11-18 15:12:42.773 DEBUG 4428 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:12:42.773 DEBUG 4428 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.lotto.store.dto.Store@513fda4d, com.lotto.store.dto.Store@3a92e666, com.lotto.store.dto.Store@6 (truncated)...]
+2024-11-18 15:12:42.777 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.349 DEBUG 4428 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/test", parameters={}
+2024-11-18 15:15:21.355 DEBUG 4428 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.TestController#test()
+2024-11-18 15:15:21.364 DEBUG 4428 --- [http-nio-8081-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-18 15:15:21.384 DEBUG 4428 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.399 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/test.css", parameters={}
+2024-11-18 15:15:21.399 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/test.js", parameters={}
+2024-11-18 15:15:21.399 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/header.css", parameters={}
+2024-11-18 15:15:21.403 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:15:21.403 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:15:21.407 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:15:21.411 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.411 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.411 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.422 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/drawNum/get/list", parameters={}
+2024-11-18 15:15:21.422 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/lotto/get/latest-lottery", parameters={}
+2024-11-18 15:15:21.423 DEBUG 4428 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/stats/get", parameters={}
+2024-11-18 15:15:21.426 DEBUG 4428 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.stats.controller.StatsController#getStats()
+2024-11-18 15:15:21.426 DEBUG 4428 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.drawNum.controller.DrawNumController#getDrawNumList()
+2024-11-18 15:15:21.426 DEBUG 4428 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.lotto.controller.LottoController#getLatestLottery()
+2024-11-18 15:15:21.537 DEBUG 4428 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:15:21.538 DEBUG 4428 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[1146, 1145, 1144, 1143, 1142, 1141, 1140, 1139, 1138, 1137, 1136, 1135, 1134, 1133, 1132, 1131, 113 (truncated)...]
+2024-11-18 15:15:21.540 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.550 DEBUG 4428 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:15:21.551 DEBUG 4428 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [Lotto(drawNum=1146, winningNum1=6, winningNum2=11, winningNum3=17, winningNum4=19, winningNum5=40, w (truncated)...]
+2024-11-18 15:15:21.552 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.553 DEBUG 4428 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:15:21.553 DEBUG 4428 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.lotto.stats.dto.Stats@704f2c55, com.lotto.stats.dto.Stats@8b2ff3c, com.lotto.stats.dto.Stats@3c (truncated)...]
+2024-11-18 15:15:21.554 DEBUG 4428 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:21.562 DEBUG 4428 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/user-lotto/get?drawNum=1146", parameters={masked}
+2024-11-18 15:15:21.565 DEBUG 4428 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.userLotto.controller.UserLottoController#getUserWinningRecord(Integer)
+2024-11-18 15:15:21.592 DEBUG 4428 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:15:21.592 DEBUG 4428 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[UserLotto(recordSeq=129, drawNum=1146, userSeq=1, lottoNum1=1, lottoNum2=17, lottoNum3=20, lottoNum (truncated)...]
+2024-11-18 15:15:21.593 DEBUG 4428 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:36.726 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/test-4", parameters={}
+2024-11-18 15:15:36.728 DEBUG 4428 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.TestController#test4()
+2024-11-18 15:15:36.738 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-18 15:15:36.761 DEBUG 4428 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:36.775 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/header.css", parameters={}
+2024-11-18 15:15:36.776 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/test-4.css", parameters={}
+2024-11-18 15:15:36.776 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/test-4.js", parameters={}
+2024-11-18 15:15:36.784 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:15:36.784 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:15:36.784 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-18 15:15:36.791 DEBUG 4428 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:36.791 DEBUG 4428 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:36.791 DEBUG 4428 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:15:36.798 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/store/get/storeList", parameters={}
+2024-11-18 15:15:36.799 DEBUG 4428 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.lotto.store.controller.StoreController#getStoreList()
+2024-11-18 15:15:36.911 DEBUG 4428 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-18 15:15:36.914 DEBUG 4428 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.lotto.store.dto.Store@49b46c28, com.lotto.store.dto.Store@6d78ab19, com.lotto.store.dto.Store@2 (truncated)...]
+2024-11-18 15:15:36.918 DEBUG 4428 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-18 15:16:36.815  INFO 4428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-18 15:16:37.083  INFO 4428 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-18 15:20:30.777  INFO 1090 --- [restartedMain] com.lotto.LottoApplication               : Starting LottoApplication using Java 11.0.11 on anjihaeui-MacBookAir.local with PID 1090 (/Users/anjihae/Desktop/project/lotto/out/production/classes started by anjihae in /Users/anjihae/Desktop/project/lotto)
+2024-11-18 15:20:30.778  INFO 1090 --- [restartedMain] com.lotto.LottoApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-11-18 15:20:30.828  INFO 1090 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-18 15:20:30.830  INFO 1090 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-18 15:20:32.065  INFO 1090 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-11-18 15:20:32.071  INFO 1090 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18 15:20:32.071  INFO 1090 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2024-11-18 15:20:32.108  INFO 1090 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-18 15:20:32.109  INFO 1090 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1279 ms
+2024-11-18 15:20:32.708 DEBUG 1090 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 3 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-18 15:20:32.724  INFO 1090 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-18 15:20:32.753 DEBUG 1090 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2024-11-18 15:20:32.764 DEBUG 1090 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /image/**] in 'resourceHandlerMapping'
+2024-11-18 15:20:32.773 DEBUG 1090 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-18 15:20:32.868  INFO 1090 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18 15:20:32.905  INFO 1090 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-11-18 15:20:32.922  INFO 1090 --- [restartedMain] com.lotto.LottoApplication               : Started LottoApplication in 2.636 seconds (JVM running for 3.974)
+2024-11-18 15:20:47.805  INFO 1101 --- [restartedMain] com.lotto.LottoApplication               : Starting LottoApplication using Java 11.0.11 on anjihaeui-MacBookAir.local with PID 1101 (/Users/anjihae/Desktop/project/lotto/out/production/classes started by anjihae in /Users/anjihae/Desktop/project/lotto)
+2024-11-18 15:20:47.811  INFO 1101 --- [restartedMain] com.lotto.LottoApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-11-18 15:20:47.867  INFO 1101 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-18 15:20:47.868  INFO 1101 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-18 15:20:48.913  INFO 1101 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-11-18 15:20:48.918  INFO 1101 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18 15:20:48.919  INFO 1101 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2024-11-18 15:20:48.953  INFO 1101 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-18 15:20:48.953  INFO 1101 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
+2024-11-18 15:20:49.553  INFO 1101 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-18 15:20:49.686  INFO 1101 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18 15:20:49.715  INFO 1101 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-11-18 15:20:49.727  INFO 1101 --- [restartedMain] com.lotto.LottoApplication               : Started LottoApplication in 2.316 seconds (JVM running for 2.971)
+2024-11-18 15:35:55.563  INFO 1038 --- [restartedMain] com.lotto.LottoApplication               : Starting LottoApplication using Java 11.0.11 on anjihaeui-MacBookAir.local with PID 1038 (/Users/anjihae/Desktop/project/lotto/out/production/classes started by anjihae in /Users/anjihae/Desktop/project/lotto)
+2024-11-18 15:35:55.565  INFO 1038 --- [restartedMain] com.lotto.LottoApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-11-18 15:35:55.684  INFO 1038 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-18 15:35:55.688  INFO 1038 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-18 15:35:56.853  INFO 1038 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-11-18 15:35:56.860  INFO 1038 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18 15:35:56.860  INFO 1038 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2024-11-18 15:35:56.901  INFO 1038 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-18 15:35:56.902  INFO 1038 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1213 ms
+2024-11-18 15:35:57.536  INFO 1038 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-18 15:35:57.671  INFO 1038 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18 15:35:57.702  INFO 1038 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-11-18 15:35:57.719  INFO 1038 --- [restartedMain] com.lotto.LottoApplication               : Started LottoApplication in 2.58 seconds (JVM running for 3.352)
