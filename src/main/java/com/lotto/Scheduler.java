@@ -27,7 +27,7 @@ public class Scheduler {
     private final PublicService publicService;
     private final StoreService storeService;
 
-    @Scheduled(cron = "0 5 21 ? * 6")
+    @Scheduled(cron = "0 10 21 ? * 6")
     public void updateLottoResults() {
 
         try {
@@ -60,7 +60,7 @@ public class Scheduler {
     }
 
     // 테스트 용
-//    @Scheduled(initialDelay = 30000, fixedDelay = 10000)
+//    @Scheduled(initialDelay = 3000, fixedDelay = 10000)
 //    public void runAfterTenSecondsRepeatTenSeconds() {
 //
 //        String toDate = lottoService.getLatestLottery().getCrtDt();
@@ -71,20 +71,18 @@ public class Scheduler {
 //
 //        List<Map<Integer, Integer>> result = lottoService.getMostNumStats(fromDate, toDate);
 //        log.info("제일 많이 나온 통계={}", result);
-
+//
 //        try {
 //            // 원하는 페이지의 url로 Document 받아오기
 //            String url = "https://www.dhlottery.co.kr/store.do?method=topStore&pageGubun=L645";
 //            Document doc = publicService.getDocumentToCrol(url);
 //
-//            Map<String, String> storeList = storeService.getStoreInfo(doc);
+//            storeService.getStoreInfo(doc);
 //
-//            // 크롤링 해온 판매점 DB에 저장하기
-//            storeService.saveStoreList(storeList);
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }
-
+//
 //        System.out.println("안녕 스케줄링 테스트야");
 //    }
 }
