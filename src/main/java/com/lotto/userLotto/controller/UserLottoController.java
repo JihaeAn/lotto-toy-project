@@ -23,7 +23,7 @@ public class UserLottoController {
     public String saveLottoNumbers(@RequestBody UserLotto userLotto) {
 
         log.info("userIp={}", userLotto);
-        userLottoService.saveLottoNumbers(userLotto);
+        int result = userLottoService.saveLottoNumbers(userLotto);
 
         return "성공";
     }

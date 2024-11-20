@@ -18,8 +18,13 @@ public class UserLottoService {
     private final UserLottoMapper userLottoMapper;
     private final DrawNumService drawNumService;
 
-    public void saveLottoNumbers(UserLotto userLotto) {
+    public int saveLottoNumbers(UserLotto userLotto) {
 
+        userLotto = createUserLottoEntity(userLotto);
+        return userLottoMapper.saveLottoNumbers(userLotto);
+    }
+
+    private UserLotto createUserLottoEntity(UserLotto userLotto) {
         userLotto = UserLotto.builder()
                 .drawNum(drawNumService.selectDrawNum()) // 제일 최신 회차 가져오기
                 .userSeq(1) // test
@@ -33,8 +38,7 @@ public class UserLottoService {
                 .lottoRank(0) // test
                 .crtIp(userLotto.getCrtIp())
                 .build();
-
-        int result = userLottoMapper.saveLottoNumbers(userLotto);
+        return userLotto;
     }
 
     public List<UserLotto> getUserWinningRecord(Integer drawNum) {
