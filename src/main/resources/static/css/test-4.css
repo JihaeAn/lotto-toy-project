@@ -105,8 +105,8 @@ h2 {
     position: relative; /* 닫기 버튼 위치 설정을 위해 relative */
     background: white;
     padding: 10px; /* 여백을 없애서 지도 크기를 최대화 */
-    width: 700px;  /* 너비를 줄여서 지도에 맞추기 */
-    height: 550px; /* 높이를 줄여서 지도에 맞추기 */
+    width: 720px;  /* 너비를 줄여서 지도에 맞추기 */
+    height: 570px; /* 높이를 줄여서 지도에 맞추기 */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
