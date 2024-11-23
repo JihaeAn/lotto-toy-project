@@ -6,6 +6,7 @@
     <title>지해의 복권방 - 1등 판매점 확인</title>
     <script src="/js/test-4.js" defer></script>
     <link rel="stylesheet" href="/css/test-4.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cf687aa6d2335104391f64c059641564&libraries=services"></script>
 </head>
 <body>
 
@@ -22,5 +23,15 @@
         </ul>
     </div>
 </div>
+
+<!-- 지도 모달 창 -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <!-- 지도 표시 -->
+        <div id="map" style="width: 700px; height: 550px;"></div>
+    </div>
+</div>
+
 </body>
 </html>
