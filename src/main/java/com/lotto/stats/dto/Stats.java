@@ -15,7 +15,7 @@ public class Stats implements ParentsDto {
     private Integer drawNum;                                            // 회차
     private Integer lottoRank;                                          // 등수
     private Integer winnerCount;                                        // 당첨자 수
-    private long prizeAmount;                                           // 당첨 금액
+    private Long prizeAmount;                                           // 당첨 금액
     private String crtDt;                                               // 생성 일자
 
     @Override

@@ -4,7 +4,7 @@ let map = null;
 $(function (){
     getStoreList();
 
-    // 모달 닫긱 버튼 누를 떄
+    // 모달 닫기 버튼 누를 떄
     $(".close-btn").click(function () {
         $("#modal").css("display", "none");
     });
@@ -13,7 +13,7 @@ $(function (){
     $(document).on("click", ".store-btn", function() {
         let address = $(this).closest(".store-item").find(".store-address").text();
 
-        // 모달 열기
+        // 모달 열기(이거의 위치가 매우 중요. 이렇게 DOM이 준비되었을 때 모달을 띄우고 지도를 초기화해야 함)
         $("#modal").css("display", "flex");
         viewStoreMap(address);
     });
