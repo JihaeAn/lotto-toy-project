@@ -49,8 +49,8 @@ public class UserIpResolver extends RequestBodyAdviceAdapter {
             }
         }
 
+        // 그렇지 않은 경우에는 request.getRemoteAddr()를 통해 기본적인 IP 주소를 얻기
         if (!StringUtils.hasText(clientIp)) {
-            // 그렇지 않은 경우에는 request.getRemoteAddr()를 통해 기본적인 IP 주소를 얻기
             userLotto.setCrtIp(request.getRemoteAddr());
         }
 
