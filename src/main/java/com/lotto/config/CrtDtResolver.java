@@ -1,12 +1,6 @@
 package com.lotto.config;
 
-import com.lotto.drawNum.dto.DrawNum;
-import com.lotto.lotto.dto.Lotto;
 import com.lotto.publicDo.dto.ParentsDto;
-import com.lotto.stats.dto.Stats;
-import com.lotto.store.dto.Store;
-import com.lotto.user.dto.User;
-import com.lotto.userLotto.dto.UserLotto;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
