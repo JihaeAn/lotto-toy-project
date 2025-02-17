@@ -53,6 +53,4 @@ public class LottoController {
 
         return result;
     }
-
-
 }
